@@ -1,0 +1,423 @@
+/*bottom and mountains*/
+/*sky and lake--used 3 gradient colors: $light-blue, $mid-gradient and $gradient*/
+/*middle gradient if needed*/
+/*text on light buttons and background for pull-out paragraphs. pull-out paragraphs will have text color white*/
+/*body copy*/
+/*box shadows and/or button borders*/
+/*alert button is $alert with white text*/
+/***********
+// This mixin definition needs to be at the top Brother Blaylock
+************/
+/*breakpoints--see media queries*/
+/* 
+I usually remove the padding and the margin from the html as well as the body tag.
+*/
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  background-color: #d0def8;
+}
+
+html {
+  height: 100%;
+}
+
+/*for when the background image ends*/
+body {
+  color: #d0def8;
+  min-height: 100%;
+  background-image: url(./images/background.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.extra1 {
+  background-image: url(./images/clouds.svg);
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 80px;
+  z-index: 200;
+  height: 150px;
+  width: 840px;
+  animation: animate-clouds 15s linear infinite alternate;
+}
+
+/*branding*/
+header {
+  background-color: transparent;
+  font-family: "Mogra", display;
+}
+
+.cd-logo {
+  /* logo box style */
+  background: transparent;
+  width: 120px;
+}
+
+/***********
+// Doing a /background.svg will do the root of your computer. You need a relative path. So ./background.svg . 
+ Brother Blaylock
+************/
+.page-wrapper {
+  display: grid;
+}
+
+/***********
+// This mixin is going to error, because yo are defining a css property outside of a rule. Is it ment to go in the page-wrapper 
+ Brother Blaylock
+************/
+/*style, position and animation of background svg*/
+.sky,
+.ground {
+  z-index: 0;
+}
+
+.sky {
+  position: relative;
+}
+
+.ground {
+  margin: 0;
+}
+
+.clouds {
+  z-index: 2;
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  width: 33%;
+  animation: animate-clouds 15s linear infinite alternate;
+}
+
+.mountains {
+  position: absolute;
+  left: 0;
+  top: 200px;
+  z-index: 5;
+}
+
+.lake {
+  position: absolute;
+  left: 0;
+  top: 350px;
+  z-index: 5;
+}
+
+@keyframes animate-clouds {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(190%);
+  }
+}
+/*end background*/
+* {
+  box-sizing: border-box;
+}
+
+/*Typography*/
+h1,
+h2 {
+  font-family: "Mogra", display;
+  color: #013d1f;
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin: 0 0 0.4em;
+  text-transform: uppercase;
+}
+
+header h2 {
+  font-size: 2.5rem;
+  margin: -0.5em 0;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+/***********
+// This mixin is going to error, because yo are defining a css property outside of a rule. to go in the h1 or h2? 
+ Brother Blaylock
+************/
+/***********
+// You can use the above mixins in 2 different ways. On inside to rule where you are going to have the media query. 
+
+
+
+h1 {
+  font-size: 2.4rem;
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 0 0 0.4em;
+  @include MQ(M) {
+    font-size: 4rem;
+  }
+
+  @include MQ(S) {
+    font-size: 1.8rem;
+    margin: 1em 0 1.4em;
+  }
+}
+
+or you could wrap a rule(s) like so. 
+
+  @include MQ(M) {
+    h1 {
+      font-size: 4rem;
+    }
+  }
+
+  @include MQ(S) {
+    h1 {
+      font-size: 1.8rem;
+      margin: 1em 0 1.4em;
+    }
+  }
+
+Brother Blaylock
+************/
+section > h2::before {
+  /* number before each section title */
+  color: black;
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  color: #d0def8;
+  text-decoration: none;
+  margin-top: 1em;
+}
+
+li {
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+  margin-top: 1em;
+}
+
+a:hover {
+  color: #d0def8;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #808080;
+}
+
+/*Buttons*/
+.btn {
+  border: #808080;
+  box-shadow: 3px 5px 5px;
+  border-radius: 0.25em;
+  font-size: 1.4rem;
+  font-family: "Poppins", sans-serif;
+  color: #013d1f;
+  padding: 0.6em 2.2em;
+  cursor: pointer;
+  background: #d0def8;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.no-touch .btn:hover {
+  background: white;
+}
+
+.btn.btn-success {
+  background: #013d1f;
+  color: #d0def8;
+}
+
+.no-touch .btn.btn-success:hover {
+  background: #013d1f;
+}
+
+.btn.btn-alert {
+  background: #ff0000;
+  color: white;
+}
+
+.no-touch .btn.btn-alert:hover {
+  background: #ff0000;
+}
+
+.btn.btn-outline {
+  color: #808080;
+  background: transparent;
+  box-shadow: 3px 5px 5px;
+}
+
+.no-touch .btn.btn-outline:hover {
+  color: #808080;
+  background: white;
+  text-decoration: underline;
+}
+
+.cd-buttons .cd-box:nth-of-type(2) span {
+  /* CSS class name color */
+  color: #013d1f;
+}
+
+/*page*/
+.intro p a {
+  color: #013d1f;
+}
+
+.intro p a:hover {
+  text-decoration: underline;
+}
+
+#zen-intro {
+  padding: 2em;
+  grid-area: zen-intro;
+  color: #013d1f;
+}
+
+header {
+  background-color: transparent;
+  padding: 2em;
+  margin: 2em;
+}
+
+#zen-summary,
+#zen-preamble {
+  background-color: transparent;
+  color: #000000;
+  margin: 2em;
+}
+
+#zen-explanation,
+#zen-participation,
+#zen-benefits,
+#zen-requirements,
+aside {
+  background-color: #013d1f;
+  color: white;
+  grid-area: aside;
+}
+
+#zen-explanation h3,
+#zen-participation h3,
+#zen-benefits h3,
+#zen-requirements h3 {
+  color: white;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 2em;
+  font-family: "Mogra", display;
+  font-size: 1.5em;
+}
+
+#zen-explanation p,
+#zen-participation p,
+#zen-benefits p,
+#zen-requirements p {
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-bottom: 2em;
+}
+
+aside h3 {
+  font-family: "Mogra", display;
+  font-size: 1.5em;
+}
+
+.design-selection,
+.design-archives,
+.zen-resources {
+  color: white;
+  padding-right: 2em;
+  font-family: "Mogra", display;
+  font-size: 1.2em;
+}
+
+.design-selection h3,
+.design-archives h3,
+.zen-resources h3 {
+  color: white;
+  font-family: "Mogra", display;
+  font-size: 1.5em;
+  padding-left: 2em;
+}
+
+.design-selection p,
+.design-archives p,
+.zen-resources p {
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-bottom: 2em;
+}
+
+/*media queries*/
+/*extra-small*/
+@media only screen and (min-width: 40em) {
+  .page-wrapper {
+    grid-template-columns: 15em 1fr;
+    grid-template-areas: "........ zen-intro" "aside zen-supporting";
+  }
+}
+/*small*/
+@media only screen and (min-width: 48em) {
+  /*or 768px*/
+  .btn {
+    font-size: 1rem;
+  }
+}
+@media only screen and (min-width: 48em) {
+  h1 {
+    font-size: 3.2rem;
+  }
+}
+@media only screen and (min-width: 48em) {
+  h2 {
+    font-size: 1.8rem;
+    margin: 1em 0 1.4em;
+  }
+}
+@media only screen and (min-width: 48em) {
+  p {
+    font-size: 1.6rem;
+    line-height: 1.6;
+  }
+}
+/*medium*/
+@media only screen and (min-width: 64em) {
+  /*or 1024 px*/
+  .cd-logo {
+    width: 180px;
+  }
+}
+@media only screen and (min-width: 64em) {
+  h1 {
+    font-size: 4rem;
+  }
+}
+/*large*/
+@media only screen and (min-width: 100em) {
+  /*originally said 40em but that is extra small 1600px=100em*/
+  .page-wrapper {
+    grid-template-columns: 25% 1fr;
+    grid-template-areas: "........ zen-intro" "aside zen-supporting";
+  }
+}
+/* need to define these variables
+@mixin column($percentage, $float-direction:left) {
+  width: 100% * $percentage;
+  float: $float-direction;
+}
+*/
+
+/*# sourceMappingURL=style.css.map */
