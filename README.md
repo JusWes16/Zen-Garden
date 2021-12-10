@@ -1,3 +1,3 @@
 # Zen-Garden
 
-This is out Zen Garden final project
+This is our Zen Garden final project
