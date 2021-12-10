@@ -65,8 +65,15 @@ body {
   min-height: 100%;
   background-image: url(./images/background.svg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   position: relative;
+  z-index: -10;
+}
+
+@media only screen and (min-width: 2200px){
+  body{
+    background-size: cover;
+  }
 }
 
 .extra1 {
@@ -74,9 +81,9 @@ body {
   background-repeat: no-repeat;
   position: absolute;
   top: 80px;
-  z-index: 200;
+  z-index: -5;
   height: 150px;
-  width: 840px;
+  width: 33%;
   animation: animate-clouds 15s linear infinite alternate;
 }
 
