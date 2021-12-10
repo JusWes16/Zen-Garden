@@ -19,7 +19,6 @@ $st_mar: 2em;
 $primary-font: 'Poppins', sans-serif;
 $secondary-font: 'Mogra', display;
 
-
 /***********
 // This mixin definition needs to be at the top Brother Blaylock
 ************/
@@ -104,7 +103,13 @@ header {
 // Doing a /background.svg will do the root of your computer. You need a relative path. So ./background.svg . 
  Brother Blaylock
 ************/
-.page-wrapper {
+.page-wrapper,
+.supporting,
+#zen-explanation,
+#zen-participation,
+#zen-benefits,
+#zen-requirements,
+footer {
   display: grid;
   
 }
@@ -372,67 +377,13 @@ header {
   margin: 2em;
 }
 
-#zen-explanation,
-#zen-participation, 
-#zen-benefits,
-#zen-requirements,
-aside {
-  background-color: $dark-green;
-  color: white;
-  grid-area: aside;
-}
 
-#zen-explanation h3,
-#zen-participation h3, 
-#zen-benefits h3,
-#zen-requirements h3{
-  color: white;  
-  padding-left: 2em;
-  padding-right: 2em;
-  padding-top: 2em;
-  font-family: $secondary-font;
-  font-size: 1.5em;
-}
 
-  #zen-explanation p,
-  #zen-participation p, 
-  #zen-benefits p,
-  #zen-requirements p {
-    padding-left: 2em;
-    padding-right: 2em;
-    padding-bottom: 2em;
-}
-
-aside h3 {
-  font-family: $secondary-font;
-  font-size: 1.5em;
-}
-
-.design-selection,
-.design-archives,
-.zen-resources {
-  color: white;  
-  padding-right: 2em;
-  font-family: $secondary-font;
-  font-size: 1.2em;
-}
-
-.design-selection h3,
-.design-archives h3,
-.zen-resources h3 {
-  color: white;
-  font-family: $secondary-font;
-  font-size: 1.5em;
-  padding-left: 2em;
-}
-
-.design-selection p,
-.design-archives p,
-.zen-resources p {
-  padding-left: 2em;
-  padding-right: 2em;
-  padding-bottom: 2em;
-}
+// .supporting {
+//   grid-area: zen-supporting;
+//   display: grid;
+//   grid-template-areas: "zen-explanation zen-participation zen-benefits zen-requirements""paragraphs paragraphs paragraphs paragraphs";
+// }
 
 /*media queries*/
 
@@ -440,7 +391,14 @@ aside h3 {
 @media only screen and (min-width: 40em) {
   .page-wrapper {
     grid-template-columns: 15em 1fr;
-    grid-template-areas: "........ zen-intro""aside zen-supporting";
+    grid-template-areas: 
+    "zen-intro"
+    "zen-explanation"
+    "zen-participation"
+    "zen-benefits"
+    "zen-requirements"
+    "aside"
+    "footer";
   }
 }
 
@@ -473,22 +431,146 @@ aside h3 {
   .cd-logo {
     width: 180px;
   }
-}
-@media only screen and (min-width: 64em) {
   h1 {
     font-size: 4rem;
   }
-}
-
+  .page-wrapper {
+    grid-template-columns: 25% 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "aside zen-intro zen-intro zen-intro zen-intro"
+      "aside supporting supporting supporting supporting"
+      "aside supporting supporting supporting supporting"
+      "aside supporting supporting supporting supporting";
+ }
+  .supporting {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    "explanation participation benefits requirements"
+    "footer footer footer footer";
+  } 
+  #zen-explanation,
+  #zen-participation,
+  #zen-benefits,
+  #zen-requirements,
+  footer {
+    grid-template-columns: 1fr;
+    grid-template-rows: 10em 40em;
+   }
+  }
 /*large*/
 @media only screen and (min-width: 100em) { /*originally said 40em but that is extra small 1600px=100em*/
-  .page-wrapper {
-       grid-template-columns: 25% 1fr;
-     grid-template-areas:
-         "........ zen-intro"
-         "aside zen-supporting";
-    }
+  
   }
+.supporting {
+  grid-area: supporting;
+}
+
+  
+  #zen-explanation,
+  #zen-participation, 
+  #zen-benefits,
+  #zen-requirements {
+    background-color: transparent;
+    color: $dark-green;
+  }
+  #zen-explanation p,
+  #zen-participation p,
+  #zen-benefits p,
+  #zen-requirements p {
+    display: none;
+  }
+
+  #zen-explanation h3:hover,
+  #zen-participation h3:hover,
+  #zen-benefits h3:hover,
+  #zen-requirements h3:hover {
+    color: white;
+    background: $dark-green;
+    font-size: larger;
+  }
+
+  #zen-explanation h3:hover + p,
+  #zen-participation h3:hover + p,
+  #zen-benefits h3:hover + p,
+  #zen-requirements h3:hover + p {
+    display: block;
+    color: white;
+    background: $dark-green;
+    font-size: larger;
+  }
+  #zen-explanation h3,
+  #zen-participation h3, 
+  #zen-benefits h3,
+  #zen-requirements h3{
+    color: $dark-green;  
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 2em;
+    font-family: $secondary-font;
+    font-size: 1.5em;
+  }
+  
+    #zen-explanation p,
+    #zen-participation p, 
+    #zen-benefits p,
+    #zen-requirements p {
+      padding-left: 2em;
+      padding-right: 2em;
+      padding-bottom: 2em;
+  }
+  footer {
+    grid-area: footer;
+    display: inline;
+    background:$dark-green;
+    width: 100%;
+    height: 3em;
+    padding: 1em 0;
+  }
+  aside {
+    background-color: $dark-green;
+    color: white;
+    grid-area: aside;
+  }
+  aside h3 {
+    font-family: $secondary-font;
+    font-size: 1.5em;
+  }
+  
+  .design-selection,
+  .design-archives,
+  .zen-resources {
+    color: white;  
+    padding-right: 2em;
+    font-family: $secondary-font;
+    font-size: 1.2em;
+  }
+  
+  .design-selection h3,
+  .design-archives h3,
+  .zen-resources h3 {
+    color: white;
+    font-family: $secondary-font;
+    font-size: 1.5em;
+    padding-left: 2em;
+  }
+  
+  .design-selection p,
+  .design-archives p,
+  .zen-resources p {
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 2em;
+  }
+  .design-selection nav,
+  .design-archives nav,
+  .zen-resources ul {
+    display: none;
+  }  
+  .design-selection h3:hover + nav,
+.design-archives h3:hover + nav,
+.zen-resources h3:hover + ul {
+  display: block;
+}
 
 
 
