@@ -1,4 +1,3 @@
-
 $light-blue: #d0def8;
 /*bottom and mountains*/
 $gradient: #e9f0ff;
@@ -16,30 +15,32 @@ $alert: #ff0000;
 $button: #e1ebfe;
 $st_pad: 2em;
 $st_mar: 2em;
-$primary-font: 'Poppins', sans-serif;
-$secondary-font: 'Mogra', display;
+$primary-font: "Poppins", sans-serif;
+$secondary-font: "Mogra", display;
 
 /***********
 // This mixin definition needs to be at the top Brother Blaylock
 ************/
 @mixin MQ($canvas) {
   @if $canvas == S {
-   @media only screen and (min-width: $S) { @content; } 
-  }
-  @else if $canvas == M {
-   @media only screen and (min-width: $M) { @content; } 
-  }
-  @else if $canvas == L {
-   @media only screen and (min-width: $L) { @content; } 
+    @media only screen and (min-width: $S) {
+      @content;
+    }
+  } @else if $canvas == M {
+    @media only screen and (min-width: $M) {
+      @content;
+    }
+  } @else if $canvas == L {
+    @media only screen and (min-width: $L) {
+      @content;
+    }
   }
 }
 
 /*breakpoints--see media queries*/
-$S:     768px;   
-$M:     1024px;     
-$L:     1600px;
-
-
+$S: 768px;
+$M: 1024px;
+$L: 1600px;
 
 /* 
 I usually remove the padding and the margin from the html as well as the body tag.
@@ -69,8 +70,8 @@ body {
   z-index: -10;
 }
 
-@media only screen and (min-width: 2200px){
-  body{
+@media only screen and (min-width: 2200px) {
+  body {
     background-size: cover;
   }
 }
@@ -86,10 +87,22 @@ body {
   animation: animate-clouds 15s linear infinite alternate;
 }
 
+// .extra2 {
+//   background-image: url(./images/logo.svg);
+//   background-repeat: no-repeat;
+//   position: absolute;
+//   top: 120px;
+//   left: 33%;
+//   z-index: 100;
+//   width: 200px;
+//   height: 100px;
+//   grid-area: logoArea;
+// }
+
 /*branding*/
 header {
-  background-color: transparent; 
-  font-family: $secondary-font;  
+  background-color: transparent;
+  font-family: $secondary-font;
 }
 
 .cd-logo {
@@ -97,7 +110,6 @@ header {
   background: transparent;
   width: 120px;
 }
-
 
 /***********
 // Doing a /background.svg will do the root of your computer. You need a relative path. So ./background.svg . 
@@ -111,7 +123,6 @@ header {
 #zen-requirements,
 footer {
   display: grid;
-  
 }
 
 // .extra1 {
@@ -119,7 +130,6 @@ footer {
 //   background-position: bottom;
 //   height: 400px;
 // }
-
 
 /***********
 // This mixin is going to error, because yo are defining a css property outside of a rule. Is it ment to go in the page-wrapper 
@@ -195,10 +205,9 @@ h1 {
   text-transform: uppercase;
 }
 
-header h2 { 
+header h2 {
   font-size: 2.5rem;
-  margin: -.5em 0;
-
+  margin: -0.5em 0;
 }
 
 h3 {
@@ -210,14 +219,14 @@ h3 {
  Brother Blaylock
 ************/
 
-  // @include MQ(M) {
-  //   font-size: 4rem;
-  // }
+// @include MQ(M) {
+//   font-size: 4rem;
+// }
 
-  // @include MQ(S) {
-  //   font-size: 1.8rem; /*or font-size: 3.2rem;*/
-  //   margin: 1em 0 1.4em;
-  // }
+// @include MQ(S) {
+//   font-size: 1.8rem; /*or font-size: 3.2rem;*/
+//   margin: 1em 0 1.4em;
+// }
 
 /***********
 // You can use the above mixins in 2 different ways. On inside to rule where you are going to have the media query. 
@@ -257,9 +266,6 @@ or you could wrap a rule(s) like so.
 Brother Blaylock
 ************/
 
-
-
-
 section > h2::before {
   /* number before each section title */
   color: darken($dark-green, 15%);
@@ -272,7 +278,7 @@ p {
 }
 
 a {
-  color:$light-blue;
+  color: $light-blue;
   text-decoration: none;
   margin-top: 1em;
 }
@@ -283,7 +289,7 @@ li {
   margin-top: 1em;
 }
 
-a:hover{
+a:hover {
   color: $light-blue;
   text-decoration: underline;
 }
@@ -291,7 +297,6 @@ a:hover{
 a:visited {
   color: $shadow;
 }
-
 
 /*Buttons*/
 .btn {
@@ -368,6 +373,21 @@ header {
   background-color: transparent;
   padding: 2em;
   margin: 2em;
+  margin-left: 240px;
+  position: relative;
+}
+
+header::before {
+  content: "";
+  background-image: url(./images/logo.svg);
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 60px;
+  left: -200px;
+  z-index: 100;
+  width: 200px;
+  height: 100px;
+  grid-area: logoArea;
 }
 
 #zen-summary,
@@ -376,8 +396,6 @@ header {
   color: $text;
   margin: 2em;
 }
-
-
 
 // .supporting {
 //   grid-area: zen-supporting;
@@ -391,19 +409,20 @@ header {
 @media only screen and (min-width: 40em) {
   .page-wrapper {
     grid-template-columns: 15em 1fr;
-    grid-template-areas: 
-    "zen-intro"
-    "zen-explanation"
-    "zen-participation"
-    "zen-benefits"
-    "zen-requirements"
-    "aside"
-    "footer";
+    grid-template-areas:
+      "zen-intro"
+      "zen-explanation"
+      "zen-participation"
+      "zen-benefits"
+      "zen-requirements"
+      "aside"
+      "footer";
   }
 }
 
 /*small*/
-@media only screen and (min-width: 48em) { /*or 768px*/
+@media only screen and (min-width: 48em) {
+  /*or 768px*/
   .btn {
     font-size: 1rem;
   }
@@ -427,7 +446,8 @@ header {
 }
 
 /*medium*/
-@media only screen and (min-width: 64em) { /*or 1024 px*/
+@media only screen and (min-width: 64em) {
+  /*or 1024 px*/
   .cd-logo {
     width: 180px;
   }
@@ -441,13 +461,13 @@ header {
       "aside supporting supporting supporting supporting"
       "aside supporting supporting supporting supporting"
       "aside supporting supporting supporting supporting";
- }
+  }
   .supporting {
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-areas: 
-    "explanation participation benefits requirements"
-    "footer footer footer footer";
-  } 
+    grid-template-areas:
+      "explanation participation benefits requirements"
+      "footer footer footer footer";
+  }
   #zen-explanation,
   #zen-participation,
   #zen-benefits,
@@ -455,124 +475,141 @@ header {
   footer {
     grid-template-columns: 1fr;
     grid-template-rows: 10em 40em;
-   }
   }
+}
 /*large*/
-@media only screen and (min-width: 100em) { /*originally said 40em but that is extra small 1600px=100em*/
-  
-  }
+@media only screen and (min-width: 100em) {
+  /*originally said 40em but that is extra small 1600px=100em*/
+}
 .supporting {
   grid-area: supporting;
 }
 
-  
-  #zen-explanation,
-  #zen-participation, 
-  #zen-benefits,
-  #zen-requirements {
-    background-color: transparent;
-    color: $dark-green;
-  }
-  #zen-explanation p,
-  #zen-participation p,
-  #zen-benefits p,
-  #zen-requirements p {
-    display: none;
-  }
+#zen-explanation,
+#zen-participation,
+#zen-benefits,
+#zen-requirements {
+  background-color: transparent;
+  color: $dark-green;
+}
+#zen-explanation p,
+#zen-participation p,
+#zen-benefits p,
+#zen-requirements p {
+  display: none;
+}
 
-  #zen-explanation h3:hover,
-  #zen-participation h3:hover,
-  #zen-benefits h3:hover,
-  #zen-requirements h3:hover {
-    color: white;
-    background: $dark-green;
-    font-size: larger;
-  }
+#zen-explanation h3:hover,
+#zen-participation h3:hover,
+#zen-benefits h3:hover,
+#zen-requirements h3:hover {
+  color: white;
+  background: $dark-green;
+  font-size: larger;
+}
 
-  #zen-explanation h3:hover + p,
-  #zen-participation h3:hover + p,
-  #zen-benefits h3:hover + p,
-  #zen-requirements h3:hover + p {
-    display: block;
-    color: white;
-    background: $dark-green;
-    font-size: larger;
-  }
-  #zen-explanation h3,
-  #zen-participation h3, 
-  #zen-benefits h3,
-  #zen-requirements h3{
-    color: $dark-green;  
-    padding-left: 2em;
-    padding-right: 2em;
-    padding-top: 2em;
-    font-family: $secondary-font;
-    font-size: 1.5em;
-  }
-  
-    #zen-explanation p,
-    #zen-participation p, 
-    #zen-benefits p,
-    #zen-requirements p {
-      padding-left: 2em;
-      padding-right: 2em;
-      padding-bottom: 2em;
-  }
-  footer {
-    grid-area: footer;
-    display: inline;
-    background:$dark-green;
-    width: 100%;
-    height: 3em;
-    padding: 1em 0;
-  }
-  aside {
-    background-color: transparent;
-    color: $text;
-    grid-area: aside;
-  }
-  aside h3 {
-    font-family: $secondary-font;
-    font-size: 1.5em;
-  }
-  
-  .design-selection,
-  .design-archives,
-  .zen-resources {
-    color: white;  
-    padding-right: 2em;
-    font-family: $secondary-font;
-    font-size: 1.2em;
-  }
-  
-  .design-selection h3,
-  .design-archives h3,
-  .zen-resources h3 {
-    color: white;
-    font-family: $secondary-font;
-    font-size: 1.5em;
-    padding-left: 2em;
-  }
-  
-  .design-selection p,
-  .design-archives p,
-  .zen-resources p {
-    padding-left: 2em;
-    padding-right: 2em;
-    padding-bottom: 2em;
-  }
-  .design-selection nav,
-  .design-archives nav,
-  .zen-resources ul {
-    display: none;
-  }  
-  .design-selection h3:hover + nav,
-.design-archives h3:hover + nav,
-.zen-resources h3:hover + ul {
+#zen-explanation h3:hover + p,
+#zen-participation h3:hover + p,
+#zen-benefits h3:hover + p,
+#zen-requirements h3:hover + p {
+  display: block;
+  color: white;
+  background: $dark-green;
+  font-size: larger;
+}
+#zen-explanation h3,
+#zen-participation h3,
+#zen-benefits h3,
+#zen-requirements h3 {
+  color: $dark-green;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 2em;
+  font-family: $secondary-font;
+  font-size: 1.5em;
+}
+
+#zen-explanation p,
+#zen-participation p,
+#zen-benefits p,
+#zen-requirements p {
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-bottom: 2em;
+}
+footer {
+  grid-area: footer;
+  display: inline;
+  background: $dark-green;
+  width: 100%;
+  height: 3em;
+  padding: 1em 0;
+}
+aside {
+  background-color: transparent;
+  color: $text;
+  grid-area: aside;
+}
+aside h3 {
+  font-family: $secondary-font;
+  font-size: 1.5em;
+}
+
+.design-selection,
+.design-archives,
+.zen-resources {
+  color: white;
+  padding-right: 2em;
+  font-family: $secondary-font;
+  font-size: 1.2em;
+}
+
+.design-selection h3,
+.design-archives h3,
+.zen-resources h3 {
+  color: white;
+  font-family: $secondary-font;
+  font-size: 1.5em;
+  padding-left: 2em;
+  margin-bottom: 0;
+  padding-bottom: 10px;
+}
+
+.design-selection p,
+.design-archives p,
+.zen-resources p {
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-bottom: 2em;
+}
+.design-selection nav,
+.design-archives nav,
+.zen-resources ul {
+  display: none;
+  margin-top: 0;
+}
+
+.design-selection nav ul,
+.design-selection nav ul li:first-child,
+.design-archives nav ul,
+.design-archives nav ul li:first-child,
+.zen-resources ul,
+.zen-resources ul li:first-child {
+  margin-top: 0;
+}
+
+.design-selection nav:hover,
+.design-archives nav:hover,
+.zen-resources ul:hover {
   display: block;
 }
 
 
+.design-selection h3:hover + nav,
+.design-archives h3:hover + nav,
+.zen-resources h3:hover + ul {
+  display: block;
+}
 
 /* need to define these variables
 @mixin column($percentage, $float-direction:left) {
@@ -580,5 +617,3 @@ header {
   float: $float-direction;
 }
 */
-
-

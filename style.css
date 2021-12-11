@@ -302,6 +302,21 @@ header {
   background-color: transparent;
   padding: 2em;
   margin: 2em;
+  margin-left: 240px;
+  position: relative;
+}
+
+header::before {
+  content: "";
+  background-image: url(./images/logo.svg);
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 60px;
+  left: -200px;
+  z-index: 100;
+  width: 200px;
+  height: 100px;
+  grid-area: logoArea;
 }
 
 #zen-summary,
@@ -446,8 +461,8 @@ footer {
 }
 
 aside {
-  background-color: #013d1f;
-  color: white;
+  background-color: transparent;
+  color: #000000;
   grid-area: aside;
 }
 
@@ -472,6 +487,8 @@ aside h3 {
   font-family: "Mogra", display;
   font-size: 1.5em;
   padding-left: 2em;
+  margin-bottom: 0;
+  padding-bottom: 10px;
 }
 
 .design-selection p,
@@ -486,13 +503,28 @@ aside h3 {
 .design-archives nav,
 .zen-resources ul {
   display: none;
+  margin-top: 0;
+}
+
+.design-selection nav ul,
+.design-selection nav ul li:first-child,
+.design-archives nav ul,
+.design-archives nav ul li:first-child,
+.zen-resources ul,
+.zen-resources ul li:first-child {
+  margin-top: 0;
+}
+
+.design-selection nav:hover,
+.design-archives nav:hover,
+.zen-resources ul:hover {
+  display: block;
 }
 
 .design-selection h3:hover + nav,
 .design-archives h3:hover + nav,
 .zen-resources h3:hover + ul {
   display: block;
-  transition: display 1s;
 }
 
 /* need to define these variables
