@@ -566,12 +566,17 @@ aside h3 {
 .design-selection h3,
 .design-archives h3,
 .zen-resources h3 {
-  color: white;
+  color: $dark-green;
   font-family: $secondary-font;
   font-size: 1.5em;
   padding-left: 2em;
   margin-bottom: 0;
-  padding-bottom: 10px;
+  padding: 20px 2em;
+}
+
+.design-archives h3,
+.zen-resources h3 {
+  margin-top: 0;
 }
 
 .design-selection p,
@@ -586,6 +591,7 @@ aside h3 {
 .zen-resources ul {
   display: none;
   margin-top: 0;
+  color: $dark-green;
 }
 
 .design-selection nav ul,
@@ -595,6 +601,7 @@ aside h3 {
 .zen-resources ul,
 .zen-resources ul li:first-child {
   margin-top: 0;
+  margin-bottom: 0;
 }
 
 .design-selection nav:hover,
