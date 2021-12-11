@@ -9,7 +9,6 @@ $dark-green: #013d1f;
 $text: #000000;
 /*body copy*/
 $shadow: #808080;
-/*box shadows and/or button borders*/
 $alert: #ff0000;
 /*alert button is $alert with white text*/
 $button: #e1ebfe;
@@ -18,9 +17,6 @@ $st_mar: 2em;
 $primary-font: "Poppins", sans-serif;
 $secondary-font: "Mogra", display;
 
-/***********
-// This mixin definition needs to be at the top Brother Blaylock
-************/
 @mixin MQ($canvas) {
   @if $canvas == S {
     @media only screen and (min-width: $S) {
@@ -38,13 +34,9 @@ $secondary-font: "Mogra", display;
 }
 
 /*breakpoints--see media queries*/
-$S: 768px;
-$M: 1024px;
-$L: 1600px;
-
-/* 
-I usually remove the padding and the margin from the html as well as the body tag.
-*/
+$S:     768px;   
+$M:     1024px;     
+$L:     1600px;
 
 html,
 body {
@@ -111,10 +103,6 @@ header {
   width: 120px;
 }
 
-/***********
-// Doing a /background.svg will do the root of your computer. You need a relative path. So ./background.svg . 
- Brother Blaylock
-************/
 .page-wrapper,
 .supporting,
 #zen-explanation,
@@ -125,21 +113,6 @@ footer {
   display: grid;
 }
 
-// .extra1 {
-//   background-image: url(./images/lake.svg);
-//   background-position: bottom;
-//   height: 400px;
-// }
-
-/***********
-// This mixin is going to error, because yo are defining a css property outside of a rule. Is it ment to go in the page-wrapper 
- Brother Blaylock
-************/
-// @include MQ(M) {
-//   width: 180px;
-// }
-
-/*style, position and animation of background svg*/
 .sky,
 .ground {
   z-index: 0;
@@ -214,58 +187,6 @@ h3 {
   font-size: 1.75rem;
 }
 
-/***********
-// This mixin is going to error, because yo are defining a css property outside of a rule. to go in the h1 or h2? 
- Brother Blaylock
-************/
-
-// @include MQ(M) {
-//   font-size: 4rem;
-// }
-
-// @include MQ(S) {
-//   font-size: 1.8rem; /*or font-size: 3.2rem;*/
-//   margin: 1em 0 1.4em;
-// }
-
-/***********
-// You can use the above mixins in 2 different ways. On inside to rule where you are going to have the media query. 
-
-
-
-h1 {
-  font-size: 2.4rem;
-  font-weight: 300;
-  line-height: 1.2;
-  margin: 0 0 0.4em;
-  @include MQ(M) {
-    font-size: 4rem;
-  }
-
-  @include MQ(S) {
-    font-size: 1.8rem;
-    margin: 1em 0 1.4em;
-  }
-}
-
-or you could wrap a rule(s) like so. 
-
-  @include MQ(M) {
-    h1 {
-      font-size: 4rem;
-    }
-  }
-
-  @include MQ(S) {
-    h1 {
-      font-size: 1.8rem;
-      margin: 1em 0 1.4em;
-    }
-  }
-
-Brother Blaylock
-************/
-
 section > h2::before {
   /* number before each section title */
   color: darken($dark-green, 15%);
@@ -278,7 +199,7 @@ p {
 }
 
 a {
-  color: $light-blue;
+  color:$dark-green;
   text-decoration: none;
   margin-top: 1em;
 }
@@ -289,8 +210,8 @@ li {
   margin-top: 1em;
 }
 
-a:hover {
-  color: $light-blue;
+a:hover{
+  color: $dark-green;
   text-decoration: underline;
 }
 
@@ -301,7 +222,6 @@ a:visited {
 /*Buttons*/
 .btn {
   border: $shadow;
-  box-shadow: 3px 5px 5px;
   border-radius: 0.25em;
   font-size: 1.4rem;
   font-family: $primary-font;
@@ -315,7 +235,7 @@ a:visited {
   outline: none;
 }
 
-.no-touch .btn:hover {
+.no-touch .btn:hover { /* is this functional? Jeannine*/
   background: white;
 }
 
@@ -327,7 +247,7 @@ a:visited {
 .no-touch .btn.btn-success:hover {
   background: $dark-green;
 }
-
+/* since we don't have any alert buttons, should we just delete this as well as the $alert variable?
 .btn.btn-alert {
   background: $alert;
   color: white;
@@ -336,11 +256,11 @@ a:visited {
 .no-touch .btn.btn-alert:hover {
   background: $alert;
 }
+Jeannine */
 
 .btn.btn-outline {
   color: $shadow;
   background: transparent;
-  box-shadow: 3px 5px 5px;
 }
 
 .no-touch .btn.btn-outline:hover {
@@ -484,20 +404,22 @@ header::before {
 .supporting {
   grid-area: supporting;
 }
+  
+  #zen-explanation,
+  #zen-participation, 
+  #zen-benefits,
+  #zen-requirements {
+    background-color: transparent;
+    color: $dark-green;
+    padding-bottom: 2em;
+  }
 
-#zen-explanation,
-#zen-participation,
-#zen-benefits,
-#zen-requirements {
-  background-color: transparent;
-  color: $dark-green;
-}
-#zen-explanation p,
-#zen-participation p,
-#zen-benefits p,
-#zen-requirements p {
-  display: none;
-}
+  #zen-explanation p,
+  #zen-participation p,
+  #zen-benefits p,
+  #zen-requirements p {
+    display: none;
+  }
 
 #zen-explanation h3:hover,
 #zen-participation h3:hover,
@@ -508,25 +430,101 @@ header::before {
   font-size: larger;
 }
 
-#zen-explanation h3:hover + p,
-#zen-participation h3:hover + p,
-#zen-benefits h3:hover + p,
-#zen-requirements h3:hover + p {
-  display: block;
-  color: white;
-  background: $dark-green;
-  font-size: larger;
-}
-#zen-explanation h3,
-#zen-participation h3,
-#zen-benefits h3,
-#zen-requirements h3 {
-  color: $dark-green;
-  padding-left: 2em;
-  padding-right: 2em;
-  padding-top: 2em;
-  font-family: $secondary-font;
-  font-size: 1.5em;
+  #zen-explanation h3:hover + p,
+  #zen-participation h3:hover + p,
+  #zen-benefits h3:hover + p,
+  #zen-requirements h3:hover + p {
+    display: block;
+    color: white;
+    background: $dark-green;
+    font-size: larger;
+  }
+  #zen-explanation h3,
+  #zen-participation h3, 
+  #zen-benefits h3,
+  #zen-requirements h3{
+    color: $dark-green;  
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 2em;
+    font-family: $secondary-font;
+    font-size: 1.5em;
+  }
+  
+    #zen-explanation p,
+    #zen-participation p, 
+    #zen-benefits p,
+    #zen-requirements p {
+      padding-left: 2em;
+      padding-right: 2em;
+      padding-bottom: 2em;
+  }
+
+  footer {
+    grid-area: footer;
+    display: inline;
+    background:$dark-green;
+    color: white;
+    width: 100%;
+    height: 3em;
+    padding: 1em 0;
+  }
+
+  footer a {
+    color: $light-blue;
+  }
+
+  footer a:hover {
+    color: white;
+  }
+
+  aside {
+    background-color: transparent;
+    color: $text;
+    grid-area: aside;
+  }
+
+  aside h3 {
+    font-family: $secondary-font;
+    font-size: 1.5em;
+  }
+  
+  .design-selection,
+  .design-archives,
+  .zen-resources {
+    color: $text;  
+    padding-right: 2em;
+    font-family: $secondary-font;
+    font-size: 1.2em;
+  }
+  
+  .design-selection h3,
+  .design-archives h3,
+  .zen-resources h3 {
+    color: $text;
+    font-family: $secondary-font;
+    font-size: 1.5em;
+    padding-left: 2em;
+  }
+  
+  .design-selection p,
+  .design-archives p,
+  .zen-resources p {
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 2em;
+  }
+
+  .design-selection nav,
+  .design-archives nav,
+  .zen-resources ul {
+    display: none;
+  }  
+
+  .design-selection h3:hover + nav,
+  .design-archives h3:hover + nav,
+  .zen-resources h3:hover + ul {
+    display: block;
 }
 
 #zen-explanation p,
@@ -610,10 +608,3 @@ aside h3 {
 .zen-resources h3:hover + ul {
   display: block;
 }
-
-/* need to define these variables
-@mixin column($percentage, $float-direction:left) {
-  width: 100% * $percentage;
-  float: $float-direction;
-}
-*/
