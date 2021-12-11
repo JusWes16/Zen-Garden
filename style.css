@@ -13,6 +13,10 @@ body {
   background-color: #d0def8;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   height: 100%;
 }
@@ -38,6 +42,7 @@ body {
   background-repeat: no-repeat;
   position: absolute;
   top: 80px;
+  left: 50px;
   z-index: -5;
   height: 150px;
   width: 33%;
@@ -50,14 +55,11 @@ header {
   font-family: "Mogra", display;
 }
 
-.cd-logo {
-  /* logo box style */
-  background: transparent;
-  width: 120px;
-}
-
 .page-wrapper {
   display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: minmax(1em, auto);
+  grid-template-areas: "zen-intro" "aside" "explanation" "participation" "benefits" "requirements" "footer";
 }
 
 .sky,
@@ -77,7 +79,7 @@ header {
   z-index: 2;
   position: absolute;
   top: 30px;
-  left: 20px;
+  left: 50px;
   width: 33%;
   animation: animate-clouds 15s linear infinite alternate;
 }
@@ -105,10 +107,6 @@ header {
   }
 }
 /*end background*/
-* {
-  box-sizing: border-box;
-}
-
 /*Typography*/
 h1,
 h2 {
@@ -164,52 +162,6 @@ a:visited {
   color: #808080;
 }
 
-/*Buttons*/
-.btn {
-  border: #808080;
-  border-radius: 0.25em;
-  font-size: 1.4rem;
-  font-family: "Poppins", sans-serif;
-  color: #013d1f;
-  padding: 0.6em 2.2em;
-  cursor: pointer;
-  background: #d0def8;
-}
-
-.btn:focus {
-  outline: none;
-}
-
-.no-touch .btn:hover {
-  /* is this functional? Jeannine*/
-  background: white;
-}
-
-.btn.btn-success {
-  background: #013d1f;
-  color: #d0def8;
-}
-
-.no-touch .btn.btn-success:hover {
-  background: #013d1f;
-}
-
-.btn.btn-outline {
-  color: #808080;
-  background: transparent;
-}
-
-.no-touch .btn.btn-outline:hover {
-  color: #808080;
-  background: white;
-  text-decoration: underline;
-}
-
-.cd-buttons .cd-box:nth-of-type(2) span {
-  /* CSS class name color */
-  color: #013d1f;
-}
-
 /*page*/
 .intro p a {
   color: #013d1f;
@@ -232,7 +184,6 @@ header {
   margin-left: 240px;
   position: relative;
 }
-
 header::before {
   content: "";
   background-image: url(./images/logo.svg);
@@ -243,7 +194,6 @@ header::before {
   z-index: 100;
   width: 200px;
   height: 100px;
-  grid-area: logoArea;
 }
 
 #zen-summary,
@@ -253,45 +203,6 @@ header::before {
   margin: 2em;
 }
 
-.page-wrapper {
-  grid-template-columns: 1fr;
-  grid-auto-rows: minmax(1em, auto);
-  grid-template-areas: "zen-intro" "explanation" "participation" "benefits" "requirements" "aside" "footer";
-}
-
-.explanation {
-  grid-area: explanation;
-  place-items: center;
-}
-
-.participation {
-  grid-area: participation;
-  place-items: center;
-}
-
-.benefits {
-  grid-area: benefits;
-  place-items: center;
-}
-
-.requirements {
-  grid-area: requirements;
-  place-items: center;
-}
-
-footer {
-  grid-area: footer;
-}
-
-/*media queries*/
-/*extra-small*/
-/*small*/
-@media only screen and (min-width: 48em) {
-  /*or 768px*/
-  .btn {
-    font-size: 1rem;
-  }
-}
 @media only screen and (min-width: 48em) {
   h1 {
     font-size: 3.2rem;
@@ -320,83 +231,72 @@ footer {
     font-size: 4rem;
   }
 
-  .supporting {
+  .main {
     display: grid;
-    grid-area: supporting;
+    grid-template-columns: 25% 1fr;
+    grid-column: 1/-1;
   }
 
   .page-wrapper {
     grid-template-columns: 25% 1fr;
     grid-template-areas: "aside zen-intro" "supporting supporting";
   }
-
-  .supporting {
-    grid-template-columns: 25% 1fr 1fr 1fr 1fr;
-    grid-template-rows: 30em 3em;
-    grid-template-areas: ". explanation participation benefits requirements" "footer footer footer footer footer";
-  }
 }
-/*large*/
-@media only screen and (min-width: 100em) {
-  /*originally said 40em but that is extra small 1600px=100em*/
-}
-.supporting {
-  cursor: pointer;
-}
-
 #zen-explanation,
 #zen-participation,
 #zen-benefits,
 #zen-requirements {
+  display: block;
   background-color: transparent;
-  color: #013d1f;
+  color: #000000;
   padding-bottom: 2em;
+  grid-column: 2;
 }
-
+#zen-explanation a,
+#zen-participation a,
+#zen-benefits a,
+#zen-requirements a {
+  color: black;
+}
 #zen-explanation p,
 #zen-participation p,
 #zen-benefits p,
 #zen-requirements p {
-  display: none;
+  padding: 0 60px;
 }
-
-#zen-explanation h3:hover,
-#zen-participation h3:hover,
-#zen-benefits h3:hover,
-#zen-requirements h3:hover {
-  color: white;
-  background: #013d1f;
-}
-
-#zen-explanation h3:hover ~ *,
-#zen-participation h3:hover ~ *,
-#zen-benefits h3:hover ~ *,
-#zen-requirements h3:hover ~ * {
-  display: block;
-  color: white;
-  background: #013d1f;
-  font-size: larger;
-  padding: 20px;
-}
-
 #zen-explanation h3,
 #zen-participation h3,
 #zen-benefits h3,
 #zen-requirements h3 {
-  color: #013d1f;
+  color: #000000;
   font-family: "Mogra", display;
-  font-size: 1.5em;
+  font-size: 2em;
   text-align: center;
-  padding-top: 40px;
+  padding: 20px;
+  margin-bottom: 0;
+}
+#zen-explanation:hover,
+#zen-participation:hover,
+#zen-benefits:hover,
+#zen-requirements:hover {
+  color: white;
+  background: #013d1f;
+}
+#zen-explanation:hover a,
+#zen-participation:hover a,
+#zen-benefits:hover a,
+#zen-requirements:hover a {
+  color: #5bb2fa;
+}
+#zen-explanation:hover h3,
+#zen-participation:hover h3,
+#zen-benefits:hover h3,
+#zen-requirements:hover h3 {
+  color: white;
 }
 
-#zen-explanation p,
-#zen-participation p,
-#zen-benefits p,
-#zen-requirements p {
-  padding-left: 2em;
-  padding-right: 2em;
-  padding-bottom: 2em;
+#zen-requirements {
+  margin-bottom: 20px;
 }
 
 footer {
@@ -406,12 +306,11 @@ footer {
   width: 100%;
   height: 3em;
   padding: 1em 1em;
+  grid-column: 1/-1;
 }
-
 footer a {
   color: #d0def8;
 }
-
 footer a:hover {
   color: white;
 }
@@ -421,7 +320,6 @@ aside {
   color: #000000;
   grid-area: aside;
 }
-
 aside h3 {
   font-family: "Mogra", display;
   font-size: 1.5em;
@@ -435,16 +333,6 @@ aside h3 {
   font-family: "Mogra", display;
   font-size: 1.2em;
 }
-
-.design-selection h3,
-.design-archives h3,
-.zen-resources h3 {
-  color: #000000;
-  font-family: "Mogra", display;
-  font-size: 1.5em;
-  padding-left: 2em;
-}
-
 .design-selection p,
 .design-archives p,
 .zen-resources p {
@@ -452,42 +340,6 @@ aside h3 {
   padding-right: 2em;
   padding-bottom: 2em;
 }
-
-.design-selection nav,
-.design-archives nav,
-.zen-resources ul {
-  display: none;
-}
-
-.design-selection h3:hover + nav,
-.design-archives h3:hover + nav,
-.zen-resources h3:hover + ul {
-  display: block;
-}
-
-#zen-explanation p,
-#zen-participation p,
-#zen-benefits p,
-#zen-requirements p {
-  padding-left: 2em;
-  padding-right: 2em;
-  padding-bottom: 2em;
-}
-
-aside h3 {
-  font-family: "Mogra", display;
-  font-size: 1.5em;
-}
-
-.design-selection,
-.design-archives,
-.zen-resources {
-  color: white;
-  padding-right: 2em;
-  font-family: "Mogra", display;
-  font-size: 1.2em;
-}
-
 .design-selection h3,
 .design-archives h3,
 .zen-resources h3 {
@@ -504,12 +356,10 @@ aside h3 {
   margin-top: 0;
 }
 
-.design-selection p,
-.design-archives p,
-.zen-resources p {
-  padding-left: 2em;
-  padding-right: 2em;
-  padding-bottom: 2em;
+.design-selection h3:hover + nav,
+.design-archives h3:hover + nav,
+.zen-resources h3:hover + ul {
+  display: block;
 }
 
 .design-selection nav,
@@ -533,12 +383,6 @@ aside h3 {
 .design-selection nav:hover,
 .design-archives nav:hover,
 .zen-resources ul:hover {
-  display: block;
-}
-
-.design-selection h3:hover + nav,
-.design-archives h3:hover + nav,
-.zen-resources h3:hover + ul {
   display: block;
 }
 
