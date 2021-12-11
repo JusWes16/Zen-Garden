@@ -361,7 +361,10 @@ footer {
 #zen-requirements h3:hover {
   color: white;
   background: #013d1f;
-  font-size: larger;
+}
+
+#zen-explanation h3:hover {
+  grid-column: span 4;
 }
 
 #zen-explanation h3:hover + p,
@@ -372,6 +375,8 @@ footer {
   color: white;
   background: #013d1f;
   font-size: larger;
+  padding: 20px;
+  grid-column: span 4;
 }
 
 #zen-explanation h3,
@@ -379,11 +384,10 @@ footer {
 #zen-benefits h3,
 #zen-requirements h3 {
   color: #013d1f;
-  padding-left: 2em;
-  padding-right: 2em;
-  padding-top: 2em;
   font-family: "Mogra", display;
   font-size: 1.5em;
+  text-align: center;
+  padding-top: 40px;
 }
 
 #zen-explanation p,

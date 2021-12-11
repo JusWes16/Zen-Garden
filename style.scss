@@ -428,28 +428,36 @@ header::before {
 #zen-requirements h3:hover {
   color: white;
   background: $dark-green;
-  font-size: larger;
+  // font-size: larger;
+}
+
+#zen-explanation h3:hover{
+  grid-column: span 4;
 }
 
 #zen-explanation h3:hover + p,
 #zen-participation h3:hover + p,
 #zen-benefits h3:hover + p,
-#zen-requirements h3:hover + p {
+#zen-requirements h3:hover + p{
   display: block;
   color: white;
   background: $dark-green;
   font-size: larger;
+  padding: 20px;
+  grid-column: span 4;
 }
 #zen-explanation h3,
 #zen-participation h3,
 #zen-benefits h3,
 #zen-requirements h3 {
   color: $dark-green;
-  padding-left: 2em;
-  padding-right: 2em;
-  padding-top: 2em;
+  // padding-left: 2em;
+  // padding-right: 2em;
+  // padding-top: 2em;
   font-family: $secondary-font;
   font-size: 1.5em;
+  text-align: center;
+  padding-top: 40px;
 }
 
 #zen-explanation p,
